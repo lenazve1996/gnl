@@ -6,7 +6,7 @@
 /*   By: ayajirob <ayajirob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 18:34:14 by ayajirob          #+#    #+#             */
-/*   Updated: 2021/12/04 19:16:07 by ayajirob         ###   ########.fr       */
+/*   Updated: 2021/12/04 20:00:45 by ayajirob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,11 @@ char	*ft_filling_line(char **buf, int fd, int index)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[1025];
+	static char	*buffer[10240];
 	char		*line;
 	int			index;
 
-	if (fd < 0)
+	if (fd < 0 || fd >= 10240) 
 		return (NULL);
 	line = NULL;
 	if (buffer[fd] == NULL)
